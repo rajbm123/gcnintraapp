@@ -78,3 +78,25 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
         }
     }
 }
+.plan-list {
+    padding: 0;
+    margin: 0;
+    background: #009688;
+    display: none;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+    li {
+        list-style: none;
+        font-size: 14px;
+        padding: 10px;
+        color: #fff;
+        font-weight: 600;
+        border-bottom: 1px solid #5aa09a;
+        cursor: pointer;
+        &:hover {
+            background: #525252;
+        }
+    }
+}
+.form-control {
+    font-size: 15px;
+}

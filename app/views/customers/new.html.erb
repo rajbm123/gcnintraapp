@@ -83,7 +83,7 @@
                  <div class="col-md-6">
                      <div class="checkbox">
                          <label>
-                             <input type="checkbox"> Same as billing address
+                             <input type="checkbox" id="planned_checked"> Same as billing address
                          </label>
                      </div>
                  </div>
@@ -113,6 +113,27 @@
                      <%= f.label :installation_email ,'Email'%>
                      <%= f.text_field :installation_email, class: "form-control", placeholder: "Enter email id." %>
                  </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="form-group col-md-4 plans-input-block">
+                 <div class="plans" >
+                     <%= f.label :net_plan ,'Plans'%>
+                     <%= f.text_field :net_plan, class: "form-control", :readonly => true %>
+                 </div>
+                 <ul class="plan-list" id="plan-list">
+                     <li>599 / 10Mbps / 20GB / 512Kbps</li>
+                     <li>649 / 2Mbps / 50GB / 512Kbps</li>
+                     <li>699 / 50Mbps / 20GB / 512Kbps</li>
+                     <li>777 / 5Mbps / 75GB / 512Kbps</li>
+                     <li>999 / 20Mbps / 30GB / 512Kbps</li>
+                     <li>1045 / 50Mbps / 50GB / 512Kbps</li>
+                     <li>1399 / 20Mbps / 100GB / 512Kbps</li>
+                     <li>700 / 1Mbps / Unlimited</li>
+                     <li>1200 / 2Mbps / Unlimited</li>
+                     <li>2200 / 4Mbps / Unlimited</li>
+                 </ul>
+
              </div>
          </div>
          <div class="row">

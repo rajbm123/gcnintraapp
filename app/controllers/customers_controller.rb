@@ -9,11 +9,11 @@ class CustomersController < ApplicationController
 	end
 
 	def create
-		# render plain: params[:customer]
+		#render plain: params[:customer]
 		@customer = Customer.new(customer_params)
 		if @customer.save
 			flash[:success] = "Customer successfully created"
-			redirect_to new_customer_path
+			redirect_to customers_path
 		else
 			render @customer
 		end
@@ -33,6 +33,8 @@ class CustomersController < ApplicationController
 	private
 
 	def customer_params
-		params.require(:customer).permit(:date, :connection_id, :name, :mobile_no, :email, :telephone_no, :date_of_birth, :billing_address, :pin_no, :nationality)
+		params.require(:customer).permit(:date, :connection_id, :name, :mobile_no, :email, :telephone_no, :date_of_birth, 
+		:billing_address, :pin_no, :nationality, :installation_address, :installation_pin_no, :installation_telephone_no,
+		:installation_mobile_no, :installation_email, :net_plan)
 	end
 end

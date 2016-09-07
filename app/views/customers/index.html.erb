@@ -27,6 +27,7 @@
             <th>Billing address</th>
             <th>Pin no</th>
             <th>Nationality</th>
+            <th>Plan</th>
           </tr>
         </thead>
         <tbody>
@@ -42,6 +43,7 @@
               <td><%= truncate(customer.billing_address, length:50) %></td>
               <td><%= customer.pin_no %></td>
               <td><%= customer.nationality %></td>
+              <td><%= customer.net_plan %></td>
               <td><%=link_to 'See details', customer_path(customer) %></td>
             </tr>
           <% end %>

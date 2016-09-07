@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907090529) do
+ActiveRecord::Schema.define(version: 20160907132443) do
 
   create_table "customers", force: true do |t|
     t.date     "date"
@@ -31,20 +31,20 @@ ActiveRecord::Schema.define(version: 20160907090529) do
     t.string   "installation_telephone_no"
     t.string   "installation_mobile_no"
     t.string   "installation_email"
+    t.string   "net_plan"
   end
 
-  create_table "installation_infos", force: true do |t|
+  create_table "net_plans", force: true do |t|
     t.integer  "customer_id"
-    t.string   "email"
-    t.string   "mobile_no"
-    t.string   "telephone_no"
-    t.text     "installation_address"
-    t.string   "pin_no"
+    t.string   "price"
+    t.string   "speed"
+    t.string   "bandwidth"
+    t.string   "fup"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "installation_infos", ["customer_id"], name: "index_installation_infos_on_customer_id", using: :btree
+  add_index "net_plans", ["customer_id"], name: "index_net_plans_on_customer_id", using: :btree
 
   create_table "users", force: true do |t|
     t.boolean  "admin"
