@@ -11,7 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905084530) do
+ActiveRecord::Schema.define(version: 20160907090529) do
+
+  create_table "customers", force: true do |t|
+    t.date     "date"
+    t.string   "connection_id"
+    t.string   "name"
+    t.string   "mobile_no"
+    t.string   "email"
+    t.string   "telephone_no"
+    t.date     "date_of_birth"
+    t.text     "billing_address"
+    t.string   "pin_no"
+    t.string   "nationality"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "installation_address"
+    t.string   "installation_pin_no"
+    t.string   "installation_telephone_no"
+    t.string   "installation_mobile_no"
+    t.string   "installation_email"
+  end
+
+  create_table "installation_infos", force: true do |t|
+    t.integer  "customer_id"
+    t.string   "email"
+    t.string   "mobile_no"
+    t.string   "telephone_no"
+    t.text     "installation_address"
+    t.string   "pin_no"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "installation_infos", ["customer_id"], name: "index_installation_infos_on_customer_id", using: :btree
 
   create_table "users", force: true do |t|
     t.boolean  "admin"

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#home'
 
+  resources :customers
+  get 'export', to: 'customers#export'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

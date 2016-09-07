@@ -16,3 +16,18 @@
 //= require bootstrap-material-design
 //= require turbolinks
 //= require_tree .
+
+function sideBarHeight(){
+	var winHeight = $(window).height();
+	var navBar = $(".navbar-default").height();
+	$(".side-bar").height(winHeight-navBar-1);
+}
+
+$(document).ready(function(){
+	$.material.init();
+	sideBarHeight();
+});
+$(document).on('turbolinks:load', function(){
+	$.material.init();
+	sideBarHeight();
+});

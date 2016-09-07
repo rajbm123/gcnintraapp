@@ -1,0 +1,125 @@
+<div class="wrapper">
+    <h1><span class="glyphicon glyphicon-plus"></span> Add new customer</h1>
+    <hr/>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><%= link_to '<span class="glyphicon glyphicon-th-list"></span> List'.html_safe, customers_path %></li>
+      <li class="active"><%= link_to '<span class="glyphicon glyphicon-plus"></span> Add new'.html_safe, new_customer_path %></li>
+      <li><%= link_to '<span class="glyphicon glyphicon-share"></span> Export'.html_safe, export_path %></li>
+    </ul>
+  </div>
+</nav>
+
+    <div class="col-md-6">
+        <h3><b><span class="glyphicon glyphicon-user"></span> New customer</b></h3>
+        <hr/>
+        <%= form_for @customer do |f| %>
+         <div class="row">
+             <div class="form-group col-md-3">
+                <%= f.label :date ,'Date'%>
+                <%= f.text_field :date, class: "form-control", placeholder: "Enter application date." %>
+             </div>
+             <div class="form-group col-md-3">
+                 <%= f.label :connection_id ,'User Id'%>
+                 <%= f.text_field :connection_id, class: "form-control", placeholder: "Enter user id." %>
+             </div>
+             <div class="form-group col-md-6">
+                 <%= f.label :name ,'Customer name'%>
+                 <%= f.text_field :name, class: "form-control", placeholder: "Enter customer name." %>
+             </div>
+         </div>
+         
+         
+         <div class="row">
+             <div class="form-group col-md-3">
+                 <%= f.label :date_of_birth ,'Date of birth'%>
+                 <%= f.text_field :date_of_birth, class: "form-control", placeholder: "Enter date of birth." %>
+             </div>
+             <div class="form-group col-md-3">
+                 <%= f.label :nationality ,'Nationality'%>
+                 <%= f.text_field :nationality, class: "form-control",  placeholder: "Enter nationality." %>
+             </div>
+         </div>
+         <div class="row billing-addr">
+             <div class="col-md-12">
+                 <div class="col-md-10">
+                     <h4>Billing Address:</h4>
+                 </div>
+             </div>
+             <div class="col-md-12">
+                 <div class="form-group col-md-10">
+                     <%= f.label :billing_address ,'Address'%>
+                     <%= f.text_area :billing_address, :rows => 3, class: "form-control", placeholder: "Enter billing address" %>
+                 </div>
+             </div>
+             <div class="col-md-12">
+                     <div class="form-group col-md-4">
+                         <%= f.label :pin_no ,'Area code/Pin code'%>
+                         <%= f.text_field :pin_no, class: "form-control", placeholder: "Enter pin code."%>
+                     </div>
+                     <div class="form-group col-md-6">
+                         <%= f.label :telephone_no ,'Telephone no'%>
+                         <%= f.text_field :telephone_no, class: "form-control", placeholder: "Enter telephone no." %>
+                     </div>
+             </div>
+             <div class="col-md-12">
+                 <div class="form-group col-md-4">
+                     <%= f.label :mobile_no ,'Mobile no'%>
+                     <%= f.text_field :mobile_no, class: "form-control", placeholder: "Enter mobile no." %>
+                 </div>
+                 <div class="form-group col-md-6">
+                     <%= f.label :email ,'Email'%>
+                     <%= f.text_field :email, class: "form-control", placeholder: "Enter email id." %>
+                 </div>
+             </div>
+         </div>
+         <div class="row billing-addr">
+             <div class="col-md-12">
+                 <div class="col-md-4">
+                     <h4>Installation Address:</h4>
+                 </div>
+                 <div class="col-md-6">
+                     <div class="checkbox">
+                         <label>
+                             <input type="checkbox"> Same as billing address
+                         </label>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-md-12">
+                 <div class="form-group col-md-10">
+                     <%= f.label :installation_address ,'Address'%>
+                     <%= f.text_area :installation_address, :rows => 3, class: "form-control", placeholder: "Enter billing address" %>
+                 </div>
+             </div>
+             <div class="col-md-12">
+                 <div class="form-group col-md-4">
+                     <%= f.label :installation_pin_no ,'Area code/Pin code'%>
+                     <%= f.text_field :installation_pin_no, class: "form-control", placeholder: "Enter pin code."%>
+                 </div>
+                 <div class="form-group col-md-6">
+                     <%= f.label :installation_telephone_no ,'Telephone no'%>
+                     <%= f.text_field :installation_telephone_no, class: "form-control", placeholder: "Enter telephone no." %>
+                 </div>
+             </div>
+             <div class="col-md-12">
+                 <div class="form-group col-md-4">
+                     <%= f.label :installation_mobile_no ,'Mobile no'%>
+                     <%= f.text_field :installation_mobile_no, class: "form-control", placeholder: "Enter mobile no." %>
+                 </div>
+                 <div class="form-group col-md-6">
+                     <%= f.label :installation_email ,'Email'%>
+                     <%= f.text_field :installation_email, class: "form-control", placeholder: "Enter email id." %>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="form-group">
+                 <%= f.submit class: "btn btn-raised btn-primary" %>
+             </div>
+         </div> 
+        <% end %>
+    </div>
+</div>

@@ -8,7 +8,6 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-	<%= render 'layouts/navbar' %>
 	<div class="container alert-box">
 		<% flash.each do |name,msg| %>
 			<div class="container animated bounceInDown">
@@ -23,22 +22,6 @@
 			</div>
 		<% end %>
 	</div>
-	<div class="container-fluid">
-
-		<div class="row">
-			<div class="col-lg-1 col-md-3 side-bar">
-				<ul class="nav sidebar-nav">
-				  <li class="active"><%=link_to 'Customers', customers_path %></li>
-				  <li><a href="#">Users</a></li>
-				  <li><a href="#">Page 2</a></li> 
-				</ul>
-			</div>
-			<div class="col-lg-11 col-md-9 side-bar-contet" style="float:right">
-				
-				<%= yield %>
-		  	</div>
-		</div>
-		
-	</div>
+	<%= yield %>
 </body>
 </html>
