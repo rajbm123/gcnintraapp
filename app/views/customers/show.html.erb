@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="#">Dashbord</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#"><%= @customer.connection_id %></a></li>
+      <li class="active"><a href="#"><%= @customer.connection_id  %></a></li>
       <li><a href="#">Page 1</a></li>
       <li><a href="#">Page 2</a></li> 
     </ul>
@@ -17,3 +17,7 @@
 
 <h1><%= @customer.name %></h1>
 <h1><%= @customer.email %></h1>
+<%= image_tag @customer.address_proof.url if @customer.address_proof? %>
+<div class="col-md-4">
+  <%= image_tag @customer.identity_proof.url if @customer.identity_proof? %>
+</div>

@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
 	end
 
 	def create
-		#render plain: params[:customer]
+		# render plain: params[:customer]
 		@customer = Customer.new(customer_params)
 		if @customer.save
 			flash[:success] = "Customer successfully created"
@@ -35,6 +35,6 @@ class CustomersController < ApplicationController
 	def customer_params
 		params.require(:customer).permit(:date, :connection_id, :name, :mobile_no, :email, :telephone_no, :date_of_birth, 
 		:billing_address, :pin_no, :nationality, :installation_address, :installation_pin_no, :installation_telephone_no,
-		:installation_mobile_no, :installation_email, :net_plan)
+		:installation_mobile_no, :installation_email, :net_plan, :address_proof, :address_proof_type, :identity_proof, :identity_proof_type, :identity_proof_no)
 	end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907132443) do
+ActiveRecord::Schema.define(version: 20160908152505) do
 
   create_table "customers", force: true do |t|
     t.date     "date"
@@ -32,6 +32,11 @@ ActiveRecord::Schema.define(version: 20160907132443) do
     t.string   "installation_mobile_no"
     t.string   "installation_email"
     t.string   "net_plan"
+    t.string   "address_proof"
+    t.string   "address_proof_type"
+    t.string   "identity_proof"
+    t.string   "identity_proof_type"
+    t.string   "identity_proof_no"
   end
 
   create_table "net_plans", force: true do |t|

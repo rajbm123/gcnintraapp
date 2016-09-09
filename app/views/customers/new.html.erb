@@ -12,10 +12,10 @@
   </div>
 </nav>
 
-    <div class="col-md-6">
+    <div class="col-md-8 col-lg-7">
         <h3><b><span class="glyphicon glyphicon-user"></span> New customer</b></h3>
         <hr/>
-        <%= form_for @customer do |f| %>
+        <%= form_for(@customer, html: {multipart: true}) do |f| %>
          <div class="row">
              <div class="form-group col-md-3">
                 <%= f.label :date ,'Date'%>
@@ -136,6 +136,139 @@
 
              </div>
          </div>
+         <div class="row billing-addr">
+             <div class="form-group col-md-4">
+                 <%=f.label :address_proof, 'Proof of address' %>
+                 <%= f.file_field :address_proof, class: "form-control" %>
+             </div>
+             <div class="col-md-8">
+
+                 <div class="col-md-6">
+                   <div class="radio radio-primary">
+                       <label>
+                           <input type="radio" name="asd[custom_address_proof]" value="Partnership did" >
+                               Partnership ded
+                       </label>
+                   </div>
+                   <div class="radio radio-primary">
+                     <label>
+                        <input type="radio" name="asd[custom_address_proof]" value="Electricity bill" >
+                         Electricity bill
+                     </label>
+                   </div>
+                 </div>
+                 <div class="col-md-6">
+                   <div class="radio radio-primary">
+                     <label>
+                        <input type="radio" name="asd[custom_address_proof]" value="Water bill" >
+                        Water bill
+                     </label>
+                   </div>
+                   <div class="radio radio-primary">
+                     <label>
+                       <input type="radio" name="asd[custom_address_proof]" value="Telephone bill" >
+                        Telephone bill
+                     </label>
+                   </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="radio radio-primary">
+                        <label>
+                            <input type="radio" name="xyz[custom_address_proof_other]" value=" " >
+                                Others
+                        </label>
+                    </div>       
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group text_field_address_proof" style="display:none">
+                        <%= f.text_field :address_proof_type, class: "form-control" %>
+                        <small id="validate">If any other, please mention here.</small>
+                    </div>       
+                 </div>
+             </div>
+         </div>
+         <div class="row billing-addr">
+             <div class="col-md-4">
+                 <div class="form-group">
+                     <%=f.label :identity_proof, 'Proof of identity' %>
+                     <%= f.file_field :identity_proof, class: "form-control" %>
+                 </div>
+                 <div class="form-group">
+                     <%= f.label :identity_proof_no, "Id proof no" %>
+                     <%= f.text_field :identity_proof_no, class: "form-control", placeholder: "Enter id proof no." %>
+                 </div>
+             </div>
+             <div class="col-md-8">
+
+                 <div class="col-md-6">
+                   <div class="radio radio-primary">
+                       <label>
+                           <input type="radio" name="asd[custom_id_proof]" value="Passprt" >
+                               Passprt
+                       </label>
+                   </div>
+                   <div class="radio radio-primary">
+                     <label>
+                        <input type="radio" name="asd[custom_id_proof]" value="Ration card" >
+                         Ration card
+                     </label>
+                   </div>
+                   <div class="radio radio-primary">
+                     <label>
+                        <input type="radio" name="asd[custom_id_proof]" value="Form 16/Assessment" >
+                         Form 16/Assessment
+                     </label>
+                   </div>
+                   <div class="radio radio-primary">
+                     <label>
+                       <input type="radio" name="asd[custom_id_proof]" value="PAN card" >
+                        PAN card
+                     </label>
+                   </div>
+                 </div>
+                 <div class="col-md-6">
+                   <div class="radio radio-primary">
+                     <label>
+                        <input type="radio" name="asd[custom_id_proof]" value="Voter's id card" >
+                        Voter's id card
+                     </label>
+                   </div>
+                   <div class="radio radio-primary">
+                     <label>
+                       <input type="radio" name="asd[custom_id_proof]" value="Lease Agreement" >
+                        Lease Agreement
+                     </label>
+                   </div>
+                   <div class="radio radio-primary">
+                     <label>
+                        <input type="radio" name="asd[custom_id_proof]" value="VAT Registration" >
+                         VAT registration
+                     </label>
+                   </div>
+                   <div class="radio radio-primary">
+                     <label>
+                       <input type="radio" name="asd[custom_id_proof]" value="Service Tax" >
+                        Service tax
+                     </label>
+                   </div>
+                 </div>
+                 <div class="col-md-6">
+                    <div class="radio radio-primary">
+                        <label>
+                            <input type="radio" name="xyz[custom_id_proof_other]" value=" " >
+                                Others
+                        </label>
+                    </div>       
+                 </div>
+                 <div class="col-md-6">
+                    <div class="form-group text_field_id_proof" style="display:none">
+                        <%= f.text_field :identity_proof_type, class: "form-control" %>
+                        <small id="validate">If any other, please mention here.</small>
+                    </div>       
+                 </div>
+
+             </div>
+         </div>
          <div class="row">
              <div class="form-group">
                  <%= f.submit class: "btn btn-raised btn-primary" %>
@@ -144,3 +277,51 @@
         <% end %>
     </div>
 </div>
+
+<script type="text/javascript">
+    $("input:radio[name='asd[custom_address_proof]']").each(function(){
+        $(this).change(function(){
+            if($(this).prop('checked') == true) {
+                var valuetrac = $(this).val()
+                $("#customer_address_proof_type").val(valuetrac);
+                $("input:radio[name='xyz[custom_address_proof_other]']").prop('checked', false);
+                $(".text_field_address_proof").hide();
+            }
+            else
+            {
+               $("#customer_address_proof_type").val("");
+            }
+        });
+    });
+    $("input:radio[name='xyz[custom_address_proof_other]']").change(function(){
+            if($(this).prop('checked') == true) {
+                $(".text_field_address_proof").show();
+                $("#customer_address_proof_type").val("").focus();
+                $("input:radio[name='asd[custom_address_proof]']").prop('checked', false);
+
+            }
+    });
+// for identity proof
+    $("input:radio[name='asd[custom_id_proof]']").each(function(){
+        $(this).change(function(){
+            if($(this).prop('checked') == true) {
+                var identityValue = $(this).val()
+                $("#customer_identity_proof_type").val(identityValue);
+                $("input:radio[name='xyz[custom_id_proof_other]']").prop('checked', false);
+                $(".text_field_id_proof").hide();
+            }
+            else
+            {
+               $("#customer_address_proof_type").val("");
+            }
+        });
+    });
+    $("input:radio[name='xyz[custom_id_proof_other]']").change(function(){
+            if($(this).prop('checked') == true) {
+                $(".text_field_id_proof").show();
+                $("#customer_identity_proof_type").val("").focus();
+                $("input:radio[name='asd[custom_id_proof]']").prop('checked', false);
+
+            }
+    });
+</script>
