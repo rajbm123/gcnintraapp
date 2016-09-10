@@ -34,6 +34,17 @@ function plansList(){
 			$(this).click(function(){
 				$("#customer_net_plan").val($(this).text());
 				$("#plan-list").fadeOut('fast');
+
+
+				var planSelected = $(this).val();
+				var tax = (planSelected*15)/100;
+				var monthlyPay = planSelected + tax;
+				
+				var planCharge = $("#customer_payment_detail_attributes_plan_tax").val(tax);
+				// console.log(planCharge)
+				var planTax = $("#customer_payment_detail_attributes_plan_cost").val(planSelected);
+				// console.log(planTax)
+				$("#customer_payment_detail_attributes_monthly_payment_cost").val(monthlyPay);
 			});
 		});
 
