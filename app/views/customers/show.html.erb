@@ -17,6 +17,7 @@
 
 <h1><%= @customer.name %></h1>
 <h1><%= @customer.email %></h1>
+<h1><%= @customer.payment_detail.plan_cost %></h1>
 <%= image_tag @customer.address_proof.url if @customer.address_proof? %>
 <div class="col-md-4">
   <%= image_tag @customer.identity_proof.url if @customer.identity_proof? %>

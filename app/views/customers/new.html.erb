@@ -270,6 +270,28 @@
 
              </div>
          </div>
+         <div class="row billing-addr">
+            <%= f.fields_for :payment_details do |payment| %>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= payment.label :plan_cost, "Plan Cost" %>
+                        <%= payment.text_field :plan_cost, class: "form-control", placeholder: "Enter plan cost" %>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= payment.label :plan_tax, "Plan tax" %>
+                        <%= payment.text_field :plan_tax, class: "form-control", placeholder: "Enter plan tax" %>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= payment.label :monthly_payment_cost, "Monthly plan cost" %>
+                        <%= payment.text_field :monthly_payment_cost, class: "form-control", placeholder: "Enter monthly payment cost" %>
+                    </div>
+                </div>
+            <% end %>     
+         </div>
          <div class="row">
              <div class="form-group">
                  <%= f.submit class: "btn btn-raised btn-primary" %>

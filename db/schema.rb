@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908152505) do
+ActiveRecord::Schema.define(version: 20160909141924) do
 
   create_table "customers", force: true do |t|
     t.date     "date"
@@ -39,17 +39,24 @@ ActiveRecord::Schema.define(version: 20160908152505) do
     t.string   "identity_proof_no"
   end
 
-  create_table "net_plans", force: true do |t|
+
+
+  create_table "payment_details", force: true do |t|
     t.integer  "customer_id"
-    t.string   "price"
-    t.string   "speed"
-    t.string   "bandwidth"
-    t.string   "fup"
+    t.string   "plan_cost"
+    t.string   "plan_tax"
+    t.string   "monthly_payment_cost"
+    t.string   "no_of_months_paid"
+    t.string   "installation_charge"
+    t.string   "company_material_use"
+    t.string   "company_material_cost"
+    t.string   "total_amount"
+    t.string   "pending_amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "net_plans", ["customer_id"], name: "index_net_plans_on_customer_id", using: :btree
+  add_index "payment_details", ["customer_id"], name: "index_payment_details_on_customer_id", using: :btree
 
   create_table "users", force: true do |t|
     t.boolean  "admin"
