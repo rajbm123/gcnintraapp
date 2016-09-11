@@ -18,7 +18,48 @@
 <h1><%= @customer.name %></h1>
 <h1><%= @customer.email %></h1>
 <h1><%= @customer.payment_detail.plan_cost %></h1>
-<%= image_tag @customer.address_proof.url if @customer.address_proof? %>
-<div class="col-md-4">
+
+<div>
+  <%= image_tag @customer.address_proof.url if @customer.address_proof? %>
   <%= image_tag @customer.identity_proof.url if @customer.identity_proof? %>
 </div>
+<div></div>
+<br/>
+<br/>
+<br/>
+<hr/>
+<table>
+  <tr>
+    <th>Bill Book no</th>
+    <th>Bill slip no</th>
+    <th>Bill Amount</th>
+    <th>Pending Amount </th>
+  </tr>
+<% @customer.bill_books.each do |bill| %>
+  <tr>
+    <td><%= bill.bill_book_no %></td>
+    <td><%= bill.bill_no %></td>
+    <td><%= bill.bill_amount %></td>
+    <td><%=  (((@customer.payment_detail.total_amount.to_i - @customer.bill_books.sum(:bill_amount)).to_i)- bill.bill_amount.to_i )%></td>
+
+  </tr>
+
+<% end %>
+
+</table>
+<% @customer.bill_books.each do |bill| %>
+<h3><b><%=bill.bill_amount %></b></h3>
+<% end %>
+<h1><b><%=(@customer.payment_detail.total_amount.to_i - @customer.bill_books.sum(:bill_amount)).to_i%></h1>
+<hr/>
+
+<%= form_for @bill do |f| %>
+  <p><%= f.label :bill_book_no %></p>
+  <p><%= f.text_field :bill_book_no %></p>
+  <p><%= f.label :bill_no %></p>
+  <p><%= f.text_field :bill_no %></p>
+  <p><%= f.label :bill_amount %></p>
+  <p><%= f.text_field :bill_amount %></p>
+  <p><%#=f.button :submit, :label => "create",:name => "customer[customer_id]",:value => ""  %>
+  <button name="customer[customer_id]" type="submit" value="<%=@customer.id %>">Add new bill</button></p>
+<% end %>

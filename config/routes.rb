@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'welcome#home'
 
   resources :customers
+  resources :bill_books
   get 'export', to: 'customers#export'
 
   # The priority is based upon order of creation: first created -> highest priority.

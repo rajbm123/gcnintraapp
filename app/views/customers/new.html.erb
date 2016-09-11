@@ -333,7 +333,30 @@
                     </div>
                 </div>
 
-            <% end %>     
+            <% end %>  
+            <%= f.fields_for :bill_books do |bill| %>
+                <div class="row billing-addr">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <%= bill.label :bill_book_no %>
+                            <%= bill.text_field :bill_book_no, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <%= bill.label :bill_no %>
+                            <%= bill.text_field :bill_no, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <%= bill.label :bill_amount %>
+                            <%= bill.text_field :bill_amount, class: "form-control" %>
+                        </div>
+                    </div>
+                    
+                </div>
+            <% end %>   
          <div class="row">
              <div class="form-group">
                  <%= f.submit class: "btn btn-raised btn-primary" %>
