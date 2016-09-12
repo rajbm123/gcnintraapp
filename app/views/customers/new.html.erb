@@ -2,7 +2,7 @@
     <h1><span class="glyphicon glyphicon-plus"></span> Add new customer</h1>
     <hr/>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default customer-navbar">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       <li><%= link_to '<span class="glyphicon glyphicon-th-list"></span> List'.html_safe, customers_path %></li>
@@ -117,9 +117,15 @@
          </div>
          
          <div class="row billing-addr">
-             <div class="form-group col-md-4">
-                 <%=f.label :address_proof, 'Proof of address' %>
-                 <%= f.file_field :address_proof, class: "form-control" %>
+             <div class="col-md-4">
+                 <div class="form-group">
+                     <%=f.label :address_proof, 'Proof of address' %>
+                     <%= f.file_field :address_proof, class: "form-control" %>
+                 </div>
+                 <div class="form-group">
+                     <%=f.label :address_proof_no, 'Proof of address' %>
+                     <%= f.text_field :address_proof_no, class: "form-control", placeholder: "Enter address proof no."%>
+                 </div>
              </div>
              <div class="col-md-8">
 
@@ -302,7 +308,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <%= payment.label :installation_charge, "Installation charge" %>
-                            <%= payment.text_field :plan_tax, class: "form-control", placeholder: "Enter installation charge" %>
+                            <%= payment.text_field :installation_charge, class: "form-control", placeholder: "Enter installation charge" %>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -320,15 +326,12 @@
                 </div>
                 <div class="row billing-addr">
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <%= payment.label :total_amount, "Total amount" %>
-                            <%= payment.text_field :total_amount, class: "form-control", placeholder: "Total amount" %>
-                        </div>
+                        <span class="btn btn-sm btn-success" id="calculate_total_amount">Calculate amount</span>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
-                            <%= payment.label :pending_amount, "Pending amount" %>
-                            <%= payment.text_field :pending_amount, class: "form-control", placeholder: "Pending amount" %>
+                        <div class="form-group" id="total-amount-div">
+                            <%= payment.label :total_amount, "Total amount" %>
+                            <%= payment.text_field :total_amount, :readonly => true, class: "form-control",  placeholder: "Total amount" %>
                         </div>
                     </div>
                 </div>
@@ -359,7 +362,7 @@
             <% end %>   
          <div class="row">
              <div class="form-group">
-                 <%= f.submit class: "btn btn-raised btn-primary" %>
+                 <%= f.submit class: "btn btn-raised btn-danger" %>
              </div>
          </div> 
         <% end %>

@@ -12,6 +12,9 @@ class BillBooksController < ApplicationController
         #render plain: params[:customer][:customer_id]
         @bill = BillBook.new(bill_book_params)
         @bill.customer_id = params[:customer][:customer_id]
+        @customer = Customer.find(@bill.customer_id)
+
+        @bill.pending_bill =  ((@customer.payment_detail.total_amount.to_i - @customer.bill_books.sum(:bill_amount)) - params[:bill_book][:bill_amount].to_i)
         
         if @bill.save
             redirect_to customer_path(@bill.customer)

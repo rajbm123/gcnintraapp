@@ -94,10 +94,22 @@ function addressCheckBox() {
 }
 
  
-
-
-
-
+ function totalBillCalculate() {
+ 	$("#calculate_total_amount").click(function(){
+	 	var monthlyPlanCost = $("#customer_payment_detail_attributes_monthly_payment_cost").val();
+	 	var noOfMonth = $("#customer_payment_detail_attributes_no_of_months_paid").val();
+	 	var installationCharge = $("#customer_payment_detail_attributes_installation_charge").val();
+	 	var otherCharge = $("#customer_payment_detail_attributes_company_material_cost").val();
+         var planvalue = (monthlyPlanCost*noOfMonth)
+         var otherTotalCharge = parseInt(installationCharge) + parseInt(otherCharge);
+         alert(otherTotalCharge)
+         alert(installationCharge)
+	 	var totalPay = planvalue + otherTotalCharge;
+	 	$("#total-amount-div").fadeIn();
+	 	$("#customer_payment_detail_attributes_total_amount").val(totalPay);
+ 	});
+ }
+ 
 
 $(document).ready(function(){
 	$.material.init();
@@ -111,4 +123,5 @@ $(document).on('turbolinks:load', function(){
 	sideBarHeight();
 	plansList()
 	addressCheckBox()
+	totalBillCalculate()
 });

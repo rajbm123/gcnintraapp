@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911100544) do
+ActiveRecord::Schema.define(version: 20160912080530) do
 
   create_table "bill_books", force: true do |t|
     t.string   "bill_book_no"
@@ -20,20 +20,10 @@ ActiveRecord::Schema.define(version: 20160911100544) do
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "pending_bill"
   end
 
   add_index "bill_books", ["customer_id"], name: "index_bill_books_on_customer_id", using: :btree
-
-  create_table "billing_details", force: true do |t|
-    t.string   "bill_book_no"
-    t.string   "bill_slip_no"
-    t.integer  "payment_detail_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "bill_amount"
-  end
-
-  add_index "billing_details", ["payment_detail_id"], name: "index_billing_details_on_payment_detail_id", using: :btree
 
   create_table "customers", force: true do |t|
     t.date     "date"
@@ -59,19 +49,8 @@ ActiveRecord::Schema.define(version: 20160911100544) do
     t.string   "identity_proof"
     t.string   "identity_proof_type"
     t.string   "identity_proof_no"
+    t.string   "address_proof_no"
   end
-
-  create_table "net_plans", force: true do |t|
-    t.integer  "customer_id"
-    t.string   "price"
-    t.string   "speed"
-    t.string   "bandwidth"
-    t.string   "fup"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "net_plans", ["customer_id"], name: "index_net_plans_on_customer_id", using: :btree
 
   create_table "payment_details", force: true do |t|
     t.integer  "customer_id"

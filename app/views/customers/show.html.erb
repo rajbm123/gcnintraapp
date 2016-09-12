@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default customer-navbar">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Dashbord</a>
@@ -40,19 +40,17 @@
     <td><%= bill.bill_book_no %></td>
     <td><%= bill.bill_no %></td>
     <td><%= bill.bill_amount %></td>
-    <td><%=  (((@customer.payment_detail.total_amount.to_i - @customer.bill_books.sum(:bill_amount)).to_i)- bill.bill_amount.to_i )%></td>
+    <% if bill.pending_bill.to_i > 0 %>
+      <td><%= bill.pending_bill.to_i %></td>
+    <% else %>
+      <td> No Pending bill <td>
+    <% end %>
 
   </tr>
 
 <% end %>
 
 </table>
-<% @customer.bill_books.each do |bill| %>
-<h3><b><%=bill.bill_amount %></b></h3>
-<% end %>
-<h1><b><%=(@customer.payment_detail.total_amount.to_i - @customer.bill_books.sum(:bill_amount)).to_i%></h1>
-<hr/>
-
 <%= form_for @bill do |f| %>
   <p><%= f.label :bill_book_no %></p>
   <p><%= f.text_field :bill_book_no %></p>
