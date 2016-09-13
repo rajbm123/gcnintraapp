@@ -1,63 +1,281 @@
-<nav class="navbar navbar-default customer-navbar">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Dashbord</a>
+<div class="container-fluid display-table">
+        <div class="row display-table-row">
+            <div class="col-md-2 col-sm-1 display-table-cell v-align box" id="navigation">
+                <div class="logo">
+                    <a hef="home.html">
+                      <img src="/assets/aboutimg.png" alt="merkery_logo" class="hidden-xs hidden-sm">
+                      <%#= image_tag 'raju.jpg', class: "img-circle" %>
+                    </a>
+                </div>
+                <div class="navi">
+                    <ul id="tab-list-item">
+                        <li class="active"><a><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Primary details</span></a></li>
+                        <li><a><i class="fa fa-money" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Payment details</span></a></li>
+                        <!-- <li><a><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm"></span>Statistics    </a></li>
+                        
+                        <li><a><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calender</span></a></li>
+                        <li><a><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
+                        <li><a><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
+                <div class="row">
+                    <header>
+                        <div class="col-md-3">
+                          <h4 class="dashboord-head-data">User id: <%= @customer.connection_id %></h4>
+                        </div>
+                        <div class="col-md-3">
+                           <h4 class="dashboord-head-data"><i class="fa fa-user" aria-hidden="true"></i> <%= @customer.name %></h4>
+                        </div>
+                        <div class="col-md-3">
+                           <h4 class="dashboord-head-data"><i class="fa fa-envelope-o" aria-hidden="true"></i> <%= @customer.email %></h4>
+                        </div>
+                        <div class="col-md-2">
+                           <h4 class="dashboord-head-data"><i class="fa fa-mobile fa-lg" aria-hidden="true"></i> <%= @customer.mobile_no %></h4>
+                        </div>
+                        <div class="col-md-1">
+                          <%= link_to 'Back', customers_path, class: "btn btn-md btn-danger" %>
+                        </div>
+                    </header>
+                </div>
+                <div class="user-dashboard">
+                    
+                    <div class="row" id="row-one">
+                      <div class="col-md-12">
+                        <h1><i class="fa fa-user" aria-hidden="true"></i> Customer primary details</h1>
+                        <hr/>
+                      </div>
+
+                      <div class="col-md-6">
+                          <h4><strong><i class="fa fa-home" aria-hidden="true"></i> Billing address</strong></h4>
+                          <div class="custom-well col-md-12">
+                            <div class="col-md-12 address">
+                                <p><%= @customer.billing_address %></p>
+                            </div>
+                            <div class="col-md-2">
+                              <p><strong>Pin code:</strong></p>
+                              <p><%= @customer.pin_no %></p>
+                            </div>
+                            <div class="col-md-3">
+                              <p><strong>Telephone no:</strong></p>
+                              <p><%= @customer.telephone_no %></p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Email:</strong></p>
+                                <p><%= @customer.email %></p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><strong>Mobile no:</strong></p>
+                                <p><%= @customer.mobile_no %></p>
+                            </div>
+                          </div>
+                      </div> 
+                      <div class="col-md-6">
+                          <h4><strong><i class="fa fa-map-marker" aria-hidden="true"></i> Installation address</strong></h4>
+                          <div class="custom-well col-md-12">
+                            <div class="col-md-12 address">
+                                <p><%= @customer.installation_address %></p>
+                            </div>
+                            <div class="col-md-2">
+                              <p><strong>Pin code:</strong></p>
+                              <p><%= @customer.installation_pin_no %></p>
+                            </div>
+                            <div class="col-md-3">
+                              <p><strong>Telephone no:</strong></p>
+                              <p><%= @customer.installation_telephone_no %></p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Email:</strong></p>
+                                <p><%= @customer.installation_email %></p>
+                            </div>
+                            <div class="col-md-3">
+                                <p><strong>Mobile no:</strong></p>
+                                <p><%= @customer.installation_mobile_no %></p>
+                            </div>
+                          </div>
+                      </div>   
+                      
+                    </div><!-- end of row-2 -->
+                    <div class="row" id="row-two">
+                      <div class="col-md-12">
+                        <h1><i class="fa fa-money" aria-hidden="true"></i> Payment details</h1>
+                        <hr/>
+                      </div>
+                      
+                      <div class="col-lg-6">
+                        <h4><strong>Plan details</strong></h4>
+                        <div class="custom-well col-md-12">
+                          <div class="col-md-4">
+                            <div class="monthly-payment">
+                              <p><b>Plant cost</b></p>
+                              <hr/>
+                              <p><i class="fa fa-inr" aria-hidden="true"></i> <%= @customer.payment_detail.plan_cost %></p>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="monthly-payment">
+                              <p><b>tax</b> <small>(15%)</small></p>
+                              <hr/>
+                              <p><i class="fa fa-inr" aria-hidden="true"></i> <%= @customer.payment_detail.plan_tax %></p>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="monthly-payment">
+                              <p><b>Monthly plan cost</b></p>
+                              <hr/>
+                              <p><i class="fa fa-inr" aria-hidden="true"></i> <%= @customer.payment_detail.monthly_payment_cost %></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <br/>
+                            <h4><strong>Total amount details</strong></h4>
+                          </div>
+                        </div>
+                        <div class="custom-well col-md-12">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="col-md-4">
+                                <div class="monthly-payment">
+                                  <p><b>No.of months</b></p>
+                                  <hr/>
+                                  <p><%= @customer.payment_detail.no_of_months_paid %></p>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="monthly-payment">
+                                  <p><b>Installation charges</b></p>
+                                  <hr/>
+                                  <p><i class="fa fa-inr" aria-hidden="true"></i> <%= @customer.payment_detail.installation_charge %></p>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="monthly-payment">
+                                  <p><b>Other charges</b></p>
+                                  <hr/>
+                                  <p><i class="fa fa-inr" aria-hidden="true"></i> <%= @customer.payment_detail.company_material_cost %></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <hr/>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="col-md-6">
+                                <div class="panel panel-success payment-panels">
+                                    <div class="panel-heading">Total amount</div>
+                                    <div class="panel-body">
+                                      <h2 style="color: #4caf50">
+                                        <i class="fa fa-inr" aria-hidden="true"></i> <%= @customer.payment_detail.total_amount.to_i %>
+                                      </h2>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="panel panel-danger payment-panels">
+                                    <div class="panel-heading">Pending amount</div>
+                                    <div class="panel-body">
+                                      <% @customer.bill_books.each do |bill| %>                                
+                                          <% if bill == @customer.bill_books.last %>
+                                            <% if bill.pending_bill.to_i > 0 %>
+                                              <h2 style="color: #f44336"><i class="fa fa-inr" aria-hidden="true"></i> <%= bill.pending_bill.to_i %></h2>                                    
+                                            <% else %>
+                                              <h2> No Pending bill </h2>
+                                            <% end %>
+                                          <% end %>
+                                      <% end %>                                      
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="col-md-12">
+                          <h4><strong>Bill book details</strong></h4>
+
+                          <table class="table table-striped bill-table">
+                            <tr class="info">
+                              <th>Bill Book no</th>
+                              <th>Bill slip no</th>
+                              <th>Bill Amount</th>
+                              <th>Pending Amount </th>
+                            </tr>
+                          <% @customer.bill_books.each do |bill| %>
+                            <tr>
+                              <td><%= bill.bill_book_no %></td>
+                              <td><%= bill.bill_no %></td>
+                              <td><i class="fa fa-inr" aria-hidden="true"></i> <%= bill.bill_amount %></td>
+                              
+                                <td>
+                                  <% if bill.pending_bill.to_i > 0 %>
+                                    <i class="fa fa-inr" aria-hidden="true"></i> <%= bill.pending_bill.to_i %>
+                                  <% else %>
+                                    No Pending bill 
+                                  <% end %>
+                                </td>
+                            </tr>
+
+                          <% end %>
+
+                          </table>
+                        </div>
+                        <div class="col-md-12">
+                          <% @customer.bill_books.each do |bill| %>                                
+                              <% if bill == @customer.bill_books.last %>
+                                <% if bill.pending_bill.to_i > 0 %>
+                                  <a data-toggle="modal" class="btn btn-md btn-success" href="#add_project">Add new bill</a>                            
+                                <% end %>
+                              <% end %>
+                          <% end %>  
+                          
+                        </div>
+                      </div>
+                    </div><!-- End of row-1-->
+                </div><!-- End of dashboard -->
+            </div>
+        </div>
+
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#"><%= @customer.connection_id  %></a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li> 
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> <%= @customer.name %></a></li>
-    </ul>
-  </div>
-</nav>
 
 
-<h1><%= @customer.name %></h1>
-<h1><%= @customer.email %></h1>
-<h1><%= @customer.payment_detail.plan_cost %></h1>
 
-<div>
-  <%= image_tag @customer.address_proof.url if @customer.address_proof? %>
-  <%= image_tag @customer.identity_proof.url if @customer.identity_proof? %>
-</div>
-<div></div>
-<br/>
-<br/>
-<br/>
-<hr/>
-<table>
-  <tr>
-    <th>Bill Book no</th>
-    <th>Bill slip no</th>
-    <th>Bill Amount</th>
-    <th>Pending Amount </th>
-  </tr>
-<% @customer.bill_books.each do |bill| %>
-  <tr>
-    <td><%= bill.bill_book_no %></td>
-    <td><%= bill.bill_no %></td>
-    <td><%= bill.bill_amount %></td>
-    <% if bill.pending_bill.to_i > 0 %>
-      <td><%= bill.pending_bill.to_i %></td>
-    <% else %>
-      <td> No Pending bill <td>
-    <% end %>
+    <!-- Modal -->
+    <div id="add_project" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-sm">
 
-  </tr>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header login-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title">Add new bill</h4>
+                </div>
+                <div class="modal-body">
+                  <%= form_for @bill do |f| %>
+                    <div class="form-group">
+                      <%= f.label :bill_book_no %>
+                      <%= f.text_field :bill_book_no, class: "form-control", placeholder: "Enter bill book number" %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.label :bill_no %>
+                      <%= f.text_field :bill_no, class: "form-control", placeholder: "Enter bill slip number" %>
+                    </div><div class="form-group">
+                      <%= f.label :bill_amount %>
+                      <%= f.text_field :bill_amount, class: "form-control", placeholder: "Enter bill amount" %>
+                    </div>
+                    <button name="customer[customer_id]" type="submit" value="<%=@customer.id %>" class="btn btn-md btn-success btn-block btn-raised add-bill-btn">Add new bill</button>
+                  <% end %>
+                </div>
+            </div>
 
-<% end %>
+        </div>
+    </div>
 
-</table>
-<%= form_for @bill do |f| %>
-  <p><%= f.label :bill_book_no %></p>
-  <p><%= f.text_field :bill_book_no %></p>
-  <p><%= f.label :bill_no %></p>
-  <p><%= f.text_field :bill_no %></p>
-  <p><%= f.label :bill_amount %></p>
-  <p><%= f.text_field :bill_amount %></p>
-  <p><%#=f.button :submit, :label => "create",:name => "customer[customer_id]",:value => ""  %>
-  <button name="customer[customer_id]" type="submit" value="<%=@customer.id %>">Add new bill</button></p>
-<% end %>
+    <div>
+                          <%#= image_tag @customer.address_proof.url if @customer.address_proof? %>
+                          <%#= image_tag @customer.identity_proof.url if @customer.identity_proof? %>
+                        </div>

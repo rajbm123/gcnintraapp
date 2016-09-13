@@ -111,12 +111,94 @@ function addressCheckBox() {
  }
  
 
+function tableHeight() {
+	var navHeight = $(".main-navbar").height();
+	var headHeight = $("#page-heading").height();
+	var innerNav = $(".customer-navbar").height();
+    var winHeight = $(window).height();
+    var offsetHeight = navHeight+headHeight+innerNav;
+    var finalTableHeight = winHeight-offsetHeight;
+	$(".resp-table").height(finalTableHeight-53);
+}
+
+function calculateTotalAmount(){
+	    $("input:radio[name='asd[custom_address_proof]']").each(function(){
+	        $(this).change(function(){
+	            if($(this).prop('checked') == true) {
+	                var valuetrac = $(this).val()
+	                $("#customer_address_proof_type").val(valuetrac);
+	                $("input:radio[name='xyz[custom_address_proof_other]']").prop('checked', false);
+	                $(".text_field_address_proof").hide();
+	            }
+	            else
+	            {
+	               $("#customer_address_proof_type").val("");
+	            }
+	        });
+	    });
+	    $("input:radio[name='xyz[custom_address_proof_other]']").change(function(){
+	            if($(this).prop('checked') == true) {
+	                $(".text_field_address_proof").show();
+	                $("#customer_address_proof_type").val("").focus();
+	                $("input:radio[name='asd[custom_address_proof]']").prop('checked', false);
+
+	            }
+	    });
+	// for identity proof
+	    $("input:radio[name='asd[custom_id_proof]']").each(function(){
+	        $(this).change(function(){
+	            if($(this).prop('checked') == true) {
+	                var identityValue = $(this).val()
+	                $("#customer_identity_proof_type").val(identityValue);
+	                $("input:radio[name='xyz[custom_id_proof_other]']").prop('checked', false);
+	                $(".text_field_id_proof").hide();
+	            }
+	            else
+	            {
+	               $("#customer_address_proof_type").val("");
+	            }
+	        });
+	    });
+	    $("input:radio[name='xyz[custom_id_proof_other]']").change(function(){
+	            if($(this).prop('checked') == true) {
+	                $(".text_field_id_proof").show();
+	                $("#customer_identity_proof_type").val("").focus();
+	                $("input:radio[name='asd[custom_id_proof]']").prop('checked', false);
+	            }
+	    });
+}
+
+function customTab() {
+	$("#tab-list-item li").each(function(){
+		$(this).click(function(){
+			$("#tab-list-item li").removeClass('active');
+			$(this).addClass('active');
+		});
+	});
+	$("#row-two").hide();
+	$("#tab-list-item li:first-child").click(function(){
+		$("#row-two").hide();
+		$("#row-one").fadeIn();
+	});
+	$("#tab-list-item li:last-child").click(function(){
+		$("#row-two").fadeIn();
+		$("#row-one").hide();
+	});
+}
+
 $(document).ready(function(){
 	$.material.init();
 	sideBarHeight();
 	plansList()
 	// addressCheckBox()
 	
+	// alert(finalTableHeight)
+	$('[data-toggle="offcanvas"]').click(function(){
+       $("#navigation").toggleClass("hidden-xs");
+   	});
+	$("#navigation").height($(window).height());
+
+
 });
 $(document).on('turbolinks:load', function(){
 	$.material.init();
@@ -124,4 +206,8 @@ $(document).on('turbolinks:load', function(){
 	plansList()
 	addressCheckBox()
 	totalBillCalculate()
+	tableHeight()
+	calculateTotalAmount()
+	$("#navigation").height($(window).height());
+	customTab()
 });
