@@ -36,6 +36,6 @@ class BillBooksController < ApplicationController
 
     private
     def bill_book_params
-        params.require(:bill_book).permit(:bill_book_no, :bill_no, :bill_amount, :customer_id)
+        params.require(:bill_book).permit(:bill_book_no, :bill_no, :bill_amount, :bill_paid_by, :bill_book_date, :customer_id)
     end
 end

@@ -19,26 +19,28 @@
   
         <%= form_for @customer do |f| %>
          <div class="row">
-             <div class="form-group col-md-3">
+             <div class="form-group col-md-3 icon-view">
                 <%= f.label :date ,'Date'%>
                 <%= f.text_field :date, class: "form-control", placeholder: "Enter application date." %>
-
+                <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
              </div>
              <div class="form-group col-md-3">
                  <%= f.label :connection_id ,'User Id'%>
                  <%= f.text_field :connection_id, class: "form-control", placeholder: "Enter user id." %>
              </div>
-             <div class="form-group col-md-6">
+             <div class="form-group col-md-6 icon-view-rupee">
                  <%= f.label :name ,'Customer name'%>
                  <%= f.text_field :name, class: "form-control", placeholder: "Enter customer name." %>
+                 <i class="fa fa-user fa-lg" aria-hidden="true"></i>
              </div>
          </div>
          
          
          <div class="row">
-             <div class="form-group col-md-3" id="sandbox-container-two">
+             <div class="form-group col-md-3 icon-view">
                  <%= f.label :date_of_birth ,'Date of birth'%>
                  <%= f.text_field :date_of_birth, class: "form-control", placeholder: "Enter date of birth." %>
+                 <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
              </div>
              <div class="form-group col-md-3">
                  <%= f.label :nationality ,'Nationality'%>
@@ -52,9 +54,10 @@
                  </div>
              </div>
              <div class="col-md-12">
-                 <div class="form-group col-md-10">
+                 <div class="form-group col-md-10 icon-view">
                      <%= f.label :billing_address ,'Address'%>
                      <%= f.text_area :billing_address, :rows => 3, class: "form-control", placeholder: "Enter billing address" %>
+                     <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
                  </div>
              </div>
              <div class="col-md-12">
@@ -62,19 +65,22 @@
                          <%= f.label :pin_no ,'Area code/Pin code'%>
                          <%= f.text_field :pin_no, class: "form-control", placeholder: "Enter pin code."%>
                      </div>
-                     <div class="form-group col-md-6">
+                     <div class="form-group col-md-6 icon-view">
                          <%= f.label :telephone_no ,'Telephone no'%>
                          <%= f.text_field :telephone_no, class: "form-control", placeholder: "Enter telephone no." %>
+                         <span class="glyphicon glyphicon-phone-alt"></span>
                      </div>
              </div>
              <div class="col-md-12">
-                 <div class="form-group col-md-4">
+                 <div class="form-group col-md-4 icon-view">
                      <%= f.label :mobile_no ,'Mobile no'%>
                      <%= f.text_field :mobile_no, class: "form-control", placeholder: "Enter mobile no." %>
+                     <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
                  </div>
-                 <div class="form-group col-md-6">
+                 <div class="form-group col-md-6 icon-view">
                      <%= f.label :email ,'Email'%>
                      <%= f.text_field :email, class: "form-control", placeholder: "Enter email id." %>
+                     <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
                  </div>
              </div>
          </div>
@@ -92,9 +98,10 @@
                  </div>
              </div>
              <div class="col-md-12">
-                 <div class="form-group col-md-10">
+                 <div class="form-group col-md-10 icon-view">
                      <%= f.label :installation_address ,'Address'%>
                      <%= f.text_area :installation_address, :rows => 3, class: "form-control", placeholder: "Enter billing address" %>
+                     <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
                  </div>
              </div>
              <div class="col-md-12">
@@ -102,27 +109,31 @@
                      <%= f.label :installation_pin_no ,'Area code/Pin code'%>
                      <%= f.text_field :installation_pin_no, class: "form-control", placeholder: "Enter pin code."%>
                  </div>
-                 <div class="form-group col-md-6">
+                 <div class="form-group col-md-6 icon-view">
                      <%= f.label :installation_telephone_no ,'Telephone no'%>
                      <%= f.text_field :installation_telephone_no, class: "form-control", placeholder: "Enter telephone no." %>
+                     <span class="glyphicon glyphicon-phone-alt"></span>
                  </div>
              </div>
              <div class="col-md-12">
-                 <div class="form-group col-md-4">
+                 <div class="form-group col-md-4 icon-view">
                      <%= f.label :installation_mobile_no ,'Mobile no'%>
                      <%= f.text_field :installation_mobile_no, class: "form-control", placeholder: "Enter mobile no." %>
+                     <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>
                  </div>
-                 <div class="form-group col-md-6">
+                 <div class="form-group col-md-6 icon-view">
                      <%= f.label :installation_email ,'Email'%>
                      <%= f.text_field :installation_email, class: "form-control", placeholder: "Enter email id." %>
+                     <i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>
                  </div>
              </div>
          </div>
          <div class="row billing-addr">
              <div class="col-md-4">
-                 <div class="form-group">
+                 <div class="form-group icon-view">
                      <%=f.label :address_proof, 'Proof of address' %>
                      <%= f.file_field :address_proof, class: "form-control" %>
+                     <i class="fa fa-paperclip fa-2x" aria-hidden="true"></i>
                  </div>
                  <div class="form-group">
                      <%=f.label :address_proof_no, 'Proof of address' %>
@@ -176,9 +187,10 @@
          </div>
          <div class="row billing-addr">
              <div class="col-md-4">
-                 <div class="form-group">
+                 <div class="form-group icon-view">
                      <%=f.label :identity_proof, 'Proof of identity' %>
                      <%= f.file_field :identity_proof, class: "form-control" %>
+                     <i class="fa fa-paperclip fa-2x" aria-hidden="true"></i>
                  </div>
                  <div class="form-group">
                      <%= f.label :identity_proof_no, "Id proof no" %>
@@ -254,11 +266,12 @@
                  </div>
              </div>
          </div>
-         <div class="row">
+         <div class="row billing-addr">
              <div class="form-group col-md-4 plans-input-block">
                  <div class="plans" >
                      <%= f.label :net_plan ,'Plans'%>
-                     <%= f.text_field :net_plan, class: "form-control", :readonly => true %>
+                     <%= f.text_field :net_plan, class: "form-control", :readonly => true, placeholder: "Select plan" %>
+                     <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
                  </div>
                  <ul class="plan-list" id="plan-list">
                      <li value="599">599 / 10Mbps / 20GB / 512Kbps</li>
@@ -277,21 +290,24 @@
             <%= f.fields_for :payment_detail do |payment| %>
                 <div class="row billing-addr">
                     <div class="col-md-4">
-                        <div class="form-group">
+                        <div class="form-group icon-view-rupee">
                             <%= payment.label :plan_cost, "Plan Cost" %>
                             <%= payment.text_field :plan_cost, class: "form-control", placeholder: "Enter plan cost" , :readonly => true %>
+                            <i class="fa fa-inr fa-lg" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group">
+                        <div class="form-group icon-view-rupee">
                             <%= payment.label :plan_tax, "Plan tax" %>
                             <%= payment.text_field :plan_tax, class: "form-control", placeholder: "Enter plan tax", :readonly => true %>
+                            <i class="fa fa-inr fa-lg" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group">
+                        <div class="form-group icon-view-rupee">
                             <%= payment.label :monthly_payment_cost, "Monthly plan cost" %>
                             <%= payment.text_field :monthly_payment_cost, class: "form-control", placeholder: "Enter monthly payment cost", readonly: "true" %>
+                            <i class="fa fa-inr fa-lg" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -303,9 +319,10 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group">
+                        <div class="form-group icon-view-rupee">
                             <%= payment.label :installation_charge, "Installation charge" %>
                             <%= payment.text_field :installation_charge, class: "form-control", placeholder: "Enter installation charge" %>
+                            <i class="fa fa-inr fa-lg" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -315,9 +332,10 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="form-group">
+                        <div class="form-group icon-view-rupee">
                             <%= payment.label :company_material_cost, "Others charge" %>
                             <%= payment.text_field :company_material_cost, class: "form-control", placeholder: "Enter others charge" %>
+                            <i class="fa fa-inr fa-lg" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -335,22 +353,97 @@
             <% end %>  
             <%= f.fields_for :bill_books do |bill| %>
                 <div class="row billing-addr">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <%= bill.label :bill_book_no %>
-                            <%= bill.text_field :bill_book_no, class: "form-control" %>
+                    <div class="col-md-3">
+                        <div class="form-group icon-view">
+                            <%= bill.label :bill_book_date, "Billing date" %>
+                            <%= bill.text_field :bill_book_date, class: "form-control" %>
+                            <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <div class="form-group icon-view">
+                            <%= bill.label :bill_book_no %>
+                            <%= bill.text_field :bill_book_no, class: "form-control" %>
+                            <i class="fa fa-book fa-lg" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
                         <div class="form-group">
                             <%= bill.label :bill_no %>
                             <%= bill.text_field :bill_no, class: "form-control" %>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
+                    <div class="col-md-3">
+                        <div class="form-group icon-view-rupee">
                             <%= bill.label :bill_amount %>
                             <%= bill.text_field :bill_amount, class: "form-control" %>
+                            <i class="fa fa-inr fa-lg" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group" style="display: none">
+                            <%= bill.label :bill_paid_by %>
+                            <%= bill.text_field :bill_paid_by, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <label>Bill paid by:</label>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="radio radio-primary">
+                                  <label>
+                                     <input type="radio" name="asd[custom_cash_proof]" value="Cash" >
+                                     Cash
+                                  </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="radio radio-primary">
+                                  <label>
+                                     <input type="radio" name="asd[custom_cash_proof]" value="Check" >
+                                     Check
+                                  </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="radio radio-primary">
+                                  <label>
+                                     <input type="radio" name="asd[custom_cash_proof]" value="DD" >
+                                      DD
+                                  </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="radio radio-primary">
+                                  <label>
+                                    <input type="radio" name="asd[custom_cash_proof]" value="Net banking">
+                                    Netbanking
+                                  </label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="radio radio-primary">
+                                  <label>
+                                    <input type="radio" name="asd[custom_cash_proof]" value="Debit card">
+                                      Debit card
+                                  </label>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <div class="radio radio-primary">
+                                  <label>
+                                    <input type="radio" name="asd[custom_cash_proof]" value="Credit card">
+                                      Credit card
+                                  </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

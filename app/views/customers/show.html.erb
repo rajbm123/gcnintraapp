@@ -241,17 +241,20 @@
 
                           <table class="table table-striped bill-table">
                             <tr class="info">
+                              <th>Billing date</th>
                               <th>Bill Book no</th>
                               <th>Bill slip no</th>
                               <th>Bill Amount</th>
+                              <th>Bill paid by </th>
                               <th>Pending Amount </th>
                             </tr>
                           <% @customer.bill_books.each do |bill| %>
                             <tr>
+                              <td><%= bill.bill_book_date %></td>
                               <td><%= bill.bill_book_no %></td>
                               <td><%= bill.bill_no %></td>
                               <td><i class="fa fa-inr" aria-hidden="true"></i> <%= bill.bill_amount %></td>
-                              
+                              <td><%= bill.bill_paid_by %></td>
                                 <td>
                                   <% if bill.pending_bill.to_i > 0 %>
                                     <i class="fa fa-inr" aria-hidden="true"></i> <%= bill.pending_bill.to_i %>
@@ -287,7 +290,7 @@
 
     <!-- Modal -->
     <div id="add_project" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-sm">
+        <div class="modal-dialog modal-md">
 
             <!-- Modal content-->
             <div class="modal-content">
@@ -297,18 +300,95 @@
                 </div>
                 <div class="modal-body">
                   <%= form_for @bill do |f| %>
-                    <div class="form-group">
-                      <%= f.label :bill_book_no %>
+                    <div class="form-group col-md-6 icon-view">
+                      <%= f.label :bill_book_date, "Bill book date" %>
+                      <%= f.text_field :bill_book_date, class: "form-control", placeholder: "Enter billing date" %>
+                      <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
+                    </div>
+                    <div class="form-group col-md-6 icon-view">
+                      <%= f.label :bill_book_no, "Bill book number" %>
                       <%= f.text_field :bill_book_no, class: "form-control", placeholder: "Enter bill book number" %>
+                      <i class="fa fa-book fa-lg" aria-hidden="true"></i>
                     </div>
-                    <div class="form-group">
-                      <%= f.label :bill_no %>
+                    <div class="form-group col-md-6">
+                      <%= f.label :bill_no, "Bill slip number" %>
                       <%= f.text_field :bill_no, class: "form-control", placeholder: "Enter bill slip number" %>
-                    </div><div class="form-group">
-                      <%= f.label :bill_amount %>
-                      <%= f.text_field :bill_amount, class: "form-control", placeholder: "Enter bill amount" %>
                     </div>
-                    <button name="customer[customer_id]" type="submit" value="<%=@customer.id %>" class="btn btn-md btn-success btn-block btn-raised add-bill-btn">Add new bill</button>
+                    <div class="form-group col-md-6 icon-view-rupee">
+                      <%= f.label :bill_amount, "Bill amount" %>
+                      <%= f.text_field :bill_amount, class: "form-control", placeholder: "Enter bill amount" %>
+                      <i class="fa fa-inr fa-lg" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group" style="display: none">
+                            <%= f.label :bill_paid_by, "Bill paid by" %>
+                            <%= f.text_field :bill_paid_by, class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Bill paid by:</label>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="radio radio-primary">
+                          <label>
+                             <input type="radio" name="asd[custom_cash_proof_show]" value="Cash" >
+                             Cash
+                          </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="radio radio-primary">
+                          <label>
+                             <input type="radio" name="asd[custom_cash_proof_show]" value="Check" >
+                             Check
+                          </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="radio radio-primary">
+                          <label>
+                             <input type="radio" name="asd[custom_cash_proof_show]" value="DD" >
+                              DD
+                          </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="radio radio-primary">
+                          <label>
+                            <input type="radio" name="asd[custom_cash_proof_show]" value="Net banking">
+                            Netbanking
+                          </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="radio radio-primary">
+                          <label>
+                            <input type="radio" name="asd[custom_cash_proof_show]" value="Debit card">
+                              Debit card
+                          </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="radio radio-primary">
+                          <label>
+                            <input type="radio" name="asd[custom_cash_proof_show]" value="Credit card">
+                              Credit card
+                          </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                       <div class="col-md-6">
+                         <button name="customer[customer_id]" type="submit" value="<%=@customer.id %>" class="btn btn-md btn-success btn-raised add-bill-btn">Add new bill</button>
+                       </div>
+                      </div>
+                    </div>
+                    
                   <% end %>
                 </div>
             </div>

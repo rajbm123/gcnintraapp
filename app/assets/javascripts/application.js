@@ -30,7 +30,7 @@ function sideBarHeight(){
 
 function plansList(){
 	$("#customer_net_plan").focus(function(){
-		 $("html, body").animate({ scrollTop: $(document).height() }, "fast");
+		 // $("html, body").animate({ scrollTop:  }, "fast");
 		$("#plan-list").fadeIn();
 		$("#plan-list li").each(function(){
 			$(this).click(function(){
@@ -168,6 +168,32 @@ function calculateTotalAmount(){
 	                $("input:radio[name='asd[custom_id_proof]']").prop('checked', false);
 	            }
 	    });
+
+	    // radio buttons for billing details 
+	    $("input:radio[name='asd[custom_cash_proof]']").each(function(){
+	        $(this).change(function(){
+	            if($(this).prop('checked') == true) {
+	                var identityValue = $(this).val()
+	                $("#customer_bill_books_attributes_0_bill_paid_by").val(identityValue);
+	            }
+	            else
+	            {
+	               $("#customer_bill_books_attributes_0_bill_paid_by").val("");
+	            }
+	        });
+	    });
+	    $("input:radio[name='asd[custom_cash_proof_show]']").each(function(){
+	        $(this).change(function(){
+	            if($(this).prop('checked') == true) {
+	                var identityValue = $(this).val()
+	                $("#bill_book_bill_paid_by").val(identityValue);
+	            }
+	            else
+	            {
+	               $("#bill_book_bill_paid_by").val("");
+	            }
+	        });
+	    });
 }
 
 function customTab() {
@@ -193,6 +219,12 @@ function datePicker(){
 		format: 'DD-MM-YYYY'
 	});
 	$('#customer_date_of_birth').datetimepicker({
+		format: 'DD-MM-YYYY'
+	});
+	$('#customer_bill_books_attributes_0_bill_book_date').datetimepicker({
+		format: 'DD-MM-YYYY'
+	});
+	$('#bill_book_bill_book_date').datetimepicker({
 		format: 'DD-MM-YYYY'
 	});
 }

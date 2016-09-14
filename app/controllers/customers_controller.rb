@@ -47,7 +47,7 @@ class CustomersController < ApplicationController
 			:net_plan,:address_proof,:address_proof_type, :address_proof_no, :identity_proof,:identity_proof_type,:identity_proof_no,
 			payment_detail_attributes: [:plan_cost, :plan_tax, :monthly_payment_cost,:id, :no_of_months_paid,
 			:installation_charge, :company_material_use, :company_material_cost, :total_amount, :pending_amount ],
-			bill_books_attributes: [:bill_book_no,:bill_no,:bill_amount,])
+			bill_books_attributes: [:bill_book_date,:bill_book_no,:bill_no,:bill_amount, :bill_paid_by])
 	end
 end
 
