@@ -904,7 +904,7 @@ header {
 }
 .monthly-payment {
     p {
-        font-size: 18px;
+        font-size: 15px;
         margin: 0;
         color: #2c3e50;
         b,small {
@@ -937,4 +937,13 @@ header {
 }
 .btn.add-bill-btn {
     margin-bottom: 0;
+}
+.col-md-12.address {
+    color: #337ab7;
+    font-weight: 600;
+}
+.img-address-proof {
+    img {
+        width: 100%;
+    }
 }

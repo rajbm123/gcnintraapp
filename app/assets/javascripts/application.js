@@ -15,6 +15,8 @@
 //= require bootstrap-sprockets
 //= require bootstrap-material-design
 //= require turbolinks
+//= require moment-with-locales.js
+//= require bootstrap-datetimepicker.js
 //= require_tree .
 
 function sideBarHeight(){
@@ -186,6 +188,15 @@ function customTab() {
 	});
 }
 
+function datePicker(){
+	$('#customer_date').datetimepicker({
+		format: 'DD-MM-YYYY'
+	});
+	$('#customer_date_of_birth').datetimepicker({
+		format: 'DD-MM-YYYY'
+	});
+}
+
 $(document).ready(function(){
 	$.material.init();
 	sideBarHeight();
@@ -197,9 +208,8 @@ $(document).ready(function(){
        $("#navigation").toggleClass("hidden-xs");
    	});
 	$("#navigation").height($(window).height());
-
-
 });
+
 $(document).on('turbolinks:load', function(){
 	$.material.init();
 	sideBarHeight();
@@ -210,4 +220,5 @@ $(document).on('turbolinks:load', function(){
 	calculateTotalAmount()
 	$("#navigation").height($(window).height());
 	customTab()
+	datePicker()
 });
