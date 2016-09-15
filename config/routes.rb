@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :customers
   resources :bill_books
   get 'export', to: 'customers#export'
+  get 'search_customers', to: "customers#search"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

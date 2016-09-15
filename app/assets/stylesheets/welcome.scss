@@ -940,7 +940,7 @@ header {
 }
 .col-md-12.address {
     color: #337ab7;
-    font-weight: 600;
+    font-weight: 500;
 }
 .img-address-proof {
     img {
@@ -956,7 +956,15 @@ header {
         line-height: 84px;
     }
 }
-
+.address-chunks {
+    table {
+        tr {
+            td {
+                padding: 3px 10px;
+            }
+        }
+    }
+}
 .form-group .form-control:focus, .form-group-default .form-control:focus {
     background-image: linear-gradient(#e74c3c, #e74c3c), linear-gradient(#d2d2d2, #d2d2d2) !important;
 }
@@ -993,4 +1001,22 @@ header {
 
 .radio-primary input[type=radio]:checked ~ .check {
     background-color: #e74c3c !important;
+}
+#spin-lookup {
+    display: none;
+}
+.close-lookup {
+    width: 15%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+button.btn.look-sub-btn {
+    width: 80%;
+}
+.look-up-friend {
+    margin-bottom: 0;
+    display: flex;
+}
+#search-item {
+    cursor: pointer;
 }

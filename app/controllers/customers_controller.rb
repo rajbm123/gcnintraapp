@@ -1,7 +1,17 @@
 class CustomersController < ApplicationController
 
+	def search
+		@customer = Customer.search(params[:search_params])
+
+		if @customer
+			render partial: "look_up"
+		else
+			render status: not_found, nothing: true
+		end
+	end
+
 	def index
-		@customers = Customer.all
+		@customer = Customer.all
 
 	end
 

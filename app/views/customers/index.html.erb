@@ -9,51 +9,11 @@
         <ul class="nav navbar-nav">
           <li class="active"><%= link_to '<span class="glyphicon glyphicon-th-list"></span> List'.html_safe, customers_path %></li>
           <li><%= link_to '<span class="glyphicon glyphicon-plus"></span> Add new'.html_safe, new_customer_path %></li>
-          <li><%= link_to '<span class="glyphicon glyphicon-search"></span> Search'.html_safe, export_path %></li>
+          <li><a id="search-item"><span class="glyphicon glyphicon-search"></span> Search</a></li>
         </ul>
       </div>
     </nav>
-
-
-     <div class="table-responsive resp-table">
-      <table class="table table-striped customer-list-table">
-        <thead>
-          <tr>
-            <th>User Id</th>
-            <th>Date</th>
-            <th>name</th>
-            <th>Mobile no</th>
-            <th>Email</th>
-            <th>Telephone no</th>
-            <th>Nationality</th>
-            <th>Plan</th>
-            <th>Total amount</th>
-            <th>Pending amount</th>
-            <th>action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @customers.each do |customer| %>
-            <tr>
-              <td><%= customer.connection_id %></td>
-              <td><%= customer.date %></td>
-              <td><%= customer.name %></td>
-              <td><%= customer.mobile_no %></td>
-              <td><%= customer.email %></td>
-              <td><%= customer.telephone_no %></td>
-              <td><%= customer.nationality %></td>
-              <td><%= customer.net_plan %></td>
-              <td><%= customer.payment_detail.total_amount %></td>
-              <% customer.bill_books.each do |bill| %>
-                <% if bill == customer.bill_books.last%>
-                  <td><%= bill.pending_bill.to_i%></td>
-                <% end %>
-              <% end %>
-              
-              <td><%=link_to 'See details', customer_path(customer), class: "btn btn-sm btn-success cust-see-detail-btn" %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+    <br/>
+     <%= render 'look_up' %>
+     
 </div>
