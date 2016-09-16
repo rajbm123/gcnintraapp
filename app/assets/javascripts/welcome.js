@@ -24,6 +24,3 @@ init_friend_lookup = function(){
 $(document).on('turbolinks:load', init_friend_lookup);
 $(document).ready(init_friend_lookup);
 $(document).bind('page:change', init_friend_lookup);
-
-
-alert("hhhhhhhhhhhhhhhhhhhhhhhhh")
