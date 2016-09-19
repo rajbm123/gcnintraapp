@@ -27,6 +27,7 @@
 			    <thead>
 			      <tr>
 			        <th>User Id</th>
+			        <th>Employee Id</th>
 			        <th>Date</th>
 			        <th>name</th>
 			        <th>Mobile no</th>
@@ -43,6 +44,7 @@
 			      <% @customer.each do |customer| %>
 			        <tr>
 			          <td><%= customer.connection_id %></td>
+			          <td><%= customer.employee_detail.emp_id %></td>
 			          <td><%= customer.date %></td>
 			          <td><%= customer.name %></td>
 			          <td><%= customer.mobile_no %></td>
@@ -71,5 +73,5 @@
 		
 	<% end %>
 <% end %>
-<div id="lookup-errors"></div>
+<div class="col-md-12" id="lookup-errors"></div>
 </div>

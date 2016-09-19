@@ -956,15 +956,7 @@ header {
         line-height: 84px;
     }
 }
-.address-chunks {
-    table {
-        tr {
-            td {
-                padding: 3px 10px;
-            }
-        }
-    }
-}
+
 .form-group .form-control:focus, .form-group-default .form-control:focus {
     background-image: linear-gradient(#e74c3c, #e74c3c), linear-gradient(#d2d2d2, #d2d2d2) !important;
 }
@@ -1002,7 +994,7 @@ header {
 .radio-primary input[type=radio]:checked ~ .check {
     background-color: #e74c3c !important;
 }
-#spin-lookup {
+#spin-lookup, #spin-employee-lookup {
     display: none;
 }
 .close-lookup {
@@ -1017,6 +1009,22 @@ button.btn.look-sub-btn {
     margin-bottom: 0;
     display: flex;
 }
-#search-item {
+#search-item, #search-employee-item {
     cursor: pointer;
+}
+
+.address-chunks {
+    tr {
+        td {
+            padding: 3px 10px;
+            &:first-child {
+                text-align: right;
+            }
+            &:last-child {
+                color: #337ab7;
+                padding-left: 0px;
+                font-weight: 600;
+            }
+        }
+    }
 }

@@ -1,12 +1,13 @@
 class Customer < ActiveRecord::Base
 	mount_uploader :address_proof, AddressProofUploader
 	mount_uploader :identity_proof, IdentityProofUploader
-
+	belongs_to :employee_detail
+	belongs_to :user
 	has_one :payment_detail
 	has_many :bill_books
 	accepts_nested_attributes_for :bill_books
 	accepts_nested_attributes_for :payment_detail
-
+	accepts_nested_attributes_for :employee_detail
 
 	def self.search(param)
 	  return Customer.none if param.blank?

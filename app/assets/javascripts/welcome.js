@@ -16,7 +16,7 @@ init_friend_lookup = function(){
 	});
 	$("#look-up-friend-form").on('ajax:error', function(event, xhr, status, error){
 		$('#customer-lookup-results').replaceWith(' ');
-		$('#lookup-errors').replaceWith('friend Not Found');
+		$('#lookup-errors').text('Data Not Found');
 		$('#spin-lookup').hide(); 
 		$('#search-friend-cont').show();
 	});
@@ -24,3 +24,31 @@ init_friend_lookup = function(){
 $(document).on('turbolinks:load', init_friend_lookup);
 $(document).ready(init_friend_lookup);
 $(document).bind('page:change', init_friend_lookup);
+
+
+var init_employee_lookup;
+
+init_employee_lookup = function(){
+	$("#look-up-employee-form").on('ajax:before', function(event, data, status){
+		$('#spin-employee-lookup').show(); 
+		$('#search-employee-cont').hide();
+	});
+	$("#look-up-employee-form").on('ajax:after', function(event, data, status){
+		$('#spin-employee-lookup').hide(); 
+		$('#search-employee-cont').show();
+	});
+	$("#look-up-employee-form").on('ajax:success', function(event, data, status){
+		$('#employee-main-block').replaceWith(data);
+		$('#employee-lookup-results').addClass('animated fadeIn');
+		init_employee_lookup(); 
+	});
+	$("#look-up-employee-form").on('ajax:error', function(event, xhr, status, error){
+		$('#employee-lookup-results').replaceWith(' ');
+		$('#employee-lookup-errors').text('Data Not Found');
+		$('#spin-employee-lookup').hide(); 
+		$('#search-friend-cont').show();
+	});
+}
+$(document).on('turbolinks:load', init_employee_lookup);
+$(document).ready(init_employee_lookup);
+$(document).bind('page:change', init_employee_lookup);

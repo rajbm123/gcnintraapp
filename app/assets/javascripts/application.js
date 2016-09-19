@@ -233,6 +233,10 @@ function datePicker(){
 	$("#search-item").click(function(){
 		$("#customer-seach-box").slideDown();
 	});
+	$("#employee-seach-box").hide();
+	$("#search-employee-item").click(function(){
+		$("#employee-seach-box").slideDown();
+	});
 }
 
 $(document).ready(function(){

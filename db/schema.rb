@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914083318) do
+ActiveRecord::Schema.define(version: 20160916155154) do
 
   create_table "bill_books", force: true do |t|
     t.string   "bill_book_no"
@@ -52,7 +52,22 @@ ActiveRecord::Schema.define(version: 20160914083318) do
     t.string   "identity_proof_type"
     t.string   "identity_proof_no"
     t.string   "address_proof_no"
+    t.integer  "employee_detail_id"
+    t.integer  "user_id"
   end
+
+  add_index "customers", ["employee_detail_id"], name: "index_customers_on_employee_detail_id", using: :btree
+  add_index "customers", ["user_id"], name: "index_customers_on_user_id", using: :btree
+
+  create_table "employee_details", force: true do |t|
+    t.string   "name"
+    t.string   "emp_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "employee_details", ["user_id"], name: "index_employee_details_on_user_id", using: :btree
 
   create_table "payment_details", force: true do |t|
     t.integer  "customer_id"

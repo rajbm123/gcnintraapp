@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'welcome#home'
@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :bill_books
   get 'export', to: 'customers#export'
   get 'search_customers', to: "customers#search"
+  get 'search_employees', to: "employee_details#search"
+
+  resources :employee_details
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

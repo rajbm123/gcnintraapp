@@ -60,26 +60,30 @@
 
                                 <div class="col-md-6">
                                   <table class="address-chunks">
-                                    <tr>
-                                      <td><strong>Pin code:</strong></td>
-                                      <td><%= @customer.pin_no %></td>
-                                    </tr>
-                                    <tr>
-                                      <td><strong>Telephone no:</strong></td>
-                                      <td><%= @customer.telephone_no %></td>
-                                    </tr>
+                                    <tbody>
+                                      <tr>
+                                        <td><strong>Pin code:</strong></td>
+                                        <td><%= @customer.pin_no %></td>
+                                      </tr>
+                                      <tr>
+                                        <td><strong>Telephone no:</strong></td>
+                                        <td><%= @customer.telephone_no %></td>
+                                      </tr>
+                                    </tbody>
                                   </table>
                                 </div>
                                 <div class="col-md-6">
                                     <table class="address-chunks">
-                                      <tr>
-                                        <td><strong>Email:</strong></td>
-                                        <td><%= @customer.email %></td>
-                                      </tr>
-                                      <tr>
-                                        <td><strong>Mobile no:</strong></td>
-                                        <td><%= @customer.mobile_no %></td>
-                                      </tr>
+                                      <tbody>
+                                        <tr>
+                                          <td><strong>Email:</strong></td>
+                                          <td><%= @customer.email %></td>
+                                        </tr>
+                                        <tr>
+                                          <td><strong>Mobile no:</strong></td>
+                                          <td><%= @customer.mobile_no %></td>
+                                        </tr>
+                                      </tbody>
                                     </table>
                                 </div>
                               </div>
@@ -91,21 +95,33 @@
                                     <p><%= @customer.installation_address %></p>
                                     <hr/>
                                 </div>
-                                <div class="col-md-2">
-                                  <p><strong>Pin code:</strong></p>
-                                  <p><%= @customer.installation_pin_no %></p>
+                                <div class="col-md-6">
+                                  <table class="address-chunks">
+                                    <tbody>
+                                      <tr>
+                                        <td><strong>Pin code:</strong></td>
+                                        <td><%= @customer.installation_pin_no %></td>
+                                      </tr>
+                                      <tr>
+                                        <td><strong>Telephone no:</strong></td>
+                                        <td><%= @customer.installation_telephone_no %></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
                                 </div>
-                                <div class="col-md-3">
-                                  <p><strong>Telephone no:</strong></p>
-                                  <p><%= @customer.installation_telephone_no %></p>
-                                </div>
-                                <div class="col-md-4">
-                                    <p><strong>Email:</strong></p>
-                                    <p><%= @customer.installation_email %></p>
-                                </div>
-                                <div class="col-md-3">
-                                    <p><strong>Mobile no:</strong></p>
-                                    <p><%= @customer.installation_mobile_no %></p>
+                                <div class="col-md-6">
+                                    <table class="address-chunks">
+                                      <tbody>
+                                        <tr>
+                                          <td><strong>Email:</strong></td>
+                                          <td><%= @customer.installation_email %></td>
+                                        </tr>
+                                        <tr>
+                                          <td><strong>Mobile no:</strong></td>
+                                          <td><%= @customer.installation_mobile_no %></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
                                 </div>
                               </div>
                           </div>   
