@@ -25,5 +25,4 @@ class EmployeeDetail < ActiveRecord::Base
 	  where("lower(#{field_name}) like?","%#{param}%")
 	end 
 
-
 end

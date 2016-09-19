@@ -32,6 +32,7 @@ class CustomersController < ApplicationController
 			bill.pending_bill = (params[:customer][:payment_detail_attributes][:total_amount].to_i - arr[0].to_i)
 		end
 		if @customer.save
+			CustomerMailer.customer_confirmation(@customer).deliver
 			flash[:success] = "Customer successfully created"
 			redirect_to customers_path
 		else
