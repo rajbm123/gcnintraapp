@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916155154) do
+ActiveRecord::Schema.define(version: 20160920104025) do
 
   create_table "bill_books", force: true do |t|
     t.string   "bill_book_no"
@@ -68,6 +68,13 @@ ActiveRecord::Schema.define(version: 20160916155154) do
   end
 
   add_index "employee_details", ["user_id"], name: "index_employee_details_on_user_id", using: :btree
+
+  create_table "gcn_plans", force: true do |t|
+    t.string   "plan_name"
+    t.string   "plan_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "payment_details", force: true do |t|
     t.integer  "customer_id"
